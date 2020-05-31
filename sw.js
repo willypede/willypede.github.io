@@ -90,6 +90,7 @@ self.addEventListener('activate', function (event) {
 //   );
 // });
 
+// default
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     fetch(event.request)
@@ -105,6 +106,32 @@ self.addEventListener('fetch', function(event) {
       })
   );
 });
+// Willy
+self.addEventListener('fetch', function (event) {
+  var url = 'https://mobweb-94fd6.firebaseio.com/resep';
+  if (event.request.url.indexOf(url) > -1) {
+    event.respondWith(fetch(event.request)
+      .then(function (res) {
+        var clonedRes = res.clone();
+        clonedRes.json()
+          .then(function(data) {
+            for (var key in data) {
+              dbPromise
+                .then(function(db) {
+                  var tx = db.transaction('resep', 'readwrite');
+                  var store = tx.objectStore('resep');
+                  store.put(data[key]);
+                  return tx.complete;
+                });
+            }
+          });
+        return res;
+      })
+    );
+  }
+});
+ 
+ 
 
 // Cache-only
 // self.addEventListener('fetch', function (event) {
