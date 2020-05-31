@@ -36,4 +36,3 @@ window.addEventListener('beforeinstallprompt', function(event) {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
