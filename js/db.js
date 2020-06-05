@@ -13,8 +13,37 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
   
-  var userRef = database.ref("resep");
-  userRef.orderByKey().on("value", snapshot => {
+  var mainMenuRef = database.ref("main_menu");
+  mainMenuRef.orderByKey().LimitToFirst(3).on("value", snapshot => {
     console.log(snapshot.val());
+    var mainMenu = snapshot.val();
+    var keys = Object.keys(mainMenu);
+    var resepSatuTitle = document.getElementById("titleResepSatu");
+    var resepDuaTitle = document.getElementById("titleResepDua");
+    var resepTigaTitle = document.getElementById("titleResepTiga");
+    var resepSatuDesc = document.getElementById("descResepSatu");
+    var resepDuaDesc = document.getElementById("descResepDua");
+    var resepTigaDesc = document.getElementById("descResepTiga");
+
+    // Resep 1
+    var k = keys[1];
+    var namaMenu = mainMenu[k].name;
+    var descMenu = mainMenu[k].description;
+    resepSatuTitle.innerHTML = namaMenu;
+    resepSatuDesc.innerHTML = descMenu;
+
+    // Resep 2
+    var k = keys[2];
+    var namaMenu = mainMenu[k].name;
+    var descMenu = mainMenu[k].description;
+    resepDuaTitle.innerHTML = namaMenu;
+    resepDuaDesc.innerHTML = descMenu;
+
+    // Resep 3
+    var k = keys[3];
+    var namaMenu = mainMenu[k].name;
+    var descMenu = mainMenu[k].description;
+    resepTigaTitle.innerHTML = namaMenu;
+    resepTigaDesc.innerHTML = descMenu;
   });
   
