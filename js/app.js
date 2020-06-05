@@ -40,12 +40,9 @@ firebase.initializeApp(firebaseConfig);
 database = firebase.database();
 
 var ref = database.ref("resep");
-ref.on("value", gotData, errData);
-
-function gotData(data){
-  console.log(data.val());
-}
-function errData(err){
-  console.log("ERROR!");
-  console.log(err);
-}
+ref.on("value", function(snapshot){
+  snapshot.forEach(function (childSnapshot){
+    var data = childSnapshot.val();
+    console.log(data);
+  });
+});
