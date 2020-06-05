@@ -1,5 +1,6 @@
 
 var deferredPrompt;
+var database;
 
 if (!window.Promise) {
   window.Promise = Promise;
@@ -36,3 +37,15 @@ window.addEventListener('beforeinstallprompt', function(event) {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+database = firebase.database();
+
+var ref = database.ref("resep");
+ref.on("value", gotData, errData);
+
+function gotData(data){
+  console.log(data.val());
+}
+function gotData(err){
+  console.log("ERROR!");
+  console.log(err);
+}
