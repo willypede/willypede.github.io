@@ -15,9 +15,9 @@ var firebaseConfig = {
   
   var mainMenuRef = database.ref("main_menu");
   mainMenuRef.orderByKey().on("value", snapshot => {
-    console.log(snapshot.val());
     var mainMenu = snapshot.val();
     var keys = Object.keys(mainMenu);
+    console.log(keys);
     var resepSatuTitle = document.getElementById("titleResepSatu");
     var resepDuaTitle = document.getElementById("titleResepDua");
     var resepTigaTitle = document.getElementById("titleResepTiga");
@@ -26,7 +26,7 @@ var firebaseConfig = {
     var resepTigaDesc = document.getElementById("descResepTiga");
 
     // Resep 1
-    var k = keys[1];
+    var k = keys[0];
     var namaMenu = mainMenu[k].name;
     var descMenu = mainMenu[k].description;
     resepSatuTitle.innerHTML = namaMenu;
