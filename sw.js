@@ -109,7 +109,7 @@ self.addEventListener('fetch', function(event) {
 });
 // Willy
 self.addEventListener('fetch', function (event) {
-  var url = 'https://mobweb-94fd6.firebaseio.com/resep';
+  var url = 'https://mobweb-94fd6.firebaseio.com/main_menu';
   if (event.request.url.indexOf(url) > -1) {
     event.respondWith(fetch(event.request)
       .then(function (res) {
@@ -119,8 +119,8 @@ self.addEventListener('fetch', function (event) {
             for (var key in data) {
               dbPromise
                 .then(function(db) {
-                  var tx = db.transaction('resep', 'readwrite');
-                  var store = tx.objectStore('resep');
+                  var tx = db.transaction('main_menu', 'readwrite');
+                  var store = tx.objectStore('main_menu');
                   store.put(data[key]);
                   return tx.complete;
                 });
