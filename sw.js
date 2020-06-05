@@ -16,6 +16,7 @@ self.addEventListener('install', function (event) {
           './elements.html',
           './receipe-post.html',
           './js/app.js',
+          './js/db.js',
           './js/feed.js',
           './js/promise.js',
           './js/fetch.js',
