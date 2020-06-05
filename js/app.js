@@ -45,7 +45,7 @@ ref.on("value", gotData, errData);
 function gotData(data){
   console.log(data.val());
 }
-function gotData(err){
+function errData(err){
   console.log("ERROR!");
   console.log(err);
 }
