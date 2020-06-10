@@ -30,7 +30,7 @@ mainMenuRef.orderByChild("code").on("value", snapshot => {
   var resepTigaDesc = document.getElementById("descResepTiga");
 
   // Resep 1
-  var k = keys[0];
+  var k = keys[2];
   var namaMenu = mainMenu[k].name;
   var descMenu = mainMenu[k].description;
   resepSatuTitle.innerHTML = namaMenu;
@@ -38,7 +38,7 @@ mainMenuRef.orderByChild("code").on("value", snapshot => {
   console.log(namaMenu);
 
   // Resep 2
-  var k = keys[1];
+  var k = keys[0];
   var namaMenu = mainMenu[k].name;
   var descMenu = mainMenu[k].description;
   resepDuaTitle.innerHTML = namaMenu;
@@ -46,7 +46,7 @@ mainMenuRef.orderByChild("code").on("value", snapshot => {
   console.log(namaMenu);
 
   // Resep 3
-  var k = keys[2];
+  var k = keys[1];
   var namaMenu = mainMenu[k].name;
   var descMenu = mainMenu[k].description;
   resepTigaTitle.innerHTML = namaMenu;
