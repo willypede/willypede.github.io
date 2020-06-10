@@ -18,7 +18,7 @@ firebase.initializeApp(firebaseConfig);
 database = firebase.database();
 
 var mainMenuRef = database.ref("main_menu");
-mainMenuRef.orderByChild("code").on("value", snapshot => {
+mainMenuRef.orderByChild("name").on("value", snapshot => {
   var mainMenu = snapshot.val();
   var keys = Object.keys(mainMenu);
   console.log(keys);
