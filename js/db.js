@@ -31,6 +31,7 @@ var firebaseConfig = {
     var descMenu = mainMenu[k].description;
     resepSatuTitle.innerHTML = namaMenu;
     resepSatuDesc.innerHTML = descMenu;
+    alert(namaMenu);
 
     // Resep 2
     var k = keys[1];
@@ -38,6 +39,7 @@ var firebaseConfig = {
     var descMenu = mainMenu[k].description;
     resepDuaTitle.innerHTML = namaMenu;
     resepDuaDesc.innerHTML = descMenu;
+    alert(namaMenu);
 
     // Resep 3
     var k = keys[2];
@@ -45,5 +47,6 @@ var firebaseConfig = {
     var descMenu = mainMenu[k].description;
     resepTigaTitle.innerHTML = namaMenu;
     resepTigaDesc.innerHTML = descMenu;
+    alert(namaMenu);
   });
   
