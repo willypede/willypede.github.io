@@ -13,7 +13,8 @@
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="manifest" href="./manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -239,220 +240,60 @@
             </div>
 
             <div class="row">
+            
+               
                 <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/bg-img/r1.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Sushi Easy Receipy</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
+                <div class="col-12 col-sm-6 col-lg-4" id="content">
+                     <script>
+                        $.ajax({
+                            url: 'https://tos.petra.ac.id/~c14170049/Mobweb/getresep.php',
+                            success: function(data){
+                                console.log(data);
+                                data.forEach(function (item, index){
+            
+                                    
+                                        var row = `
+                                        <div class="single-best-receipe-area mb-30">
+                                            <img src='`+ item['foto_resep']+`'' alt="">
+                                             <div class="receipe-content">
+                                                    <a href="receipe-post.html">
+                                                        <h5>`+ item['nama_resep']+`</h5>
+                                                    </a>
+                                                    <div class="ratings">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;  
+    
+                                    $("#content").append(row);
+                                });
+                            },
+                             error: function () {
+                               
+                            },
+                             complete: function (data) {
+                                // Handle the complete event
+                                console.log(data);
+                            }
+                        });
+                    
+                </script>
+                    
 
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/bg-img/r2.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Burger</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/bg-img/r3.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Vegan Smoothie</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/bg-img/r4.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Calabasa soup</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/bg-img/r5.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Breakfast</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="img/bg-img/r6.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Healthy Fruit Desert</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
     <!-- ##### Best Receipe Area End ##### -->
 
-    <!-- ##### CTA Area Start ##### -->
-    <section class="cta-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg4.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <!-- Cta Content -->
-                    <div class="cta-content text-center">
-                        <h2>Gluten Free Recipes</h2>
-                        <p>Fusce nec ante vitae lacus aliquet vulputate. Donec scelerisque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras sed accumsan neque. Ut vulputate, lectus vel aliquam congue, risus leo elementum nibh</p>
-                        <a href="receipe-post.html" class="btn delicious-btn">Discover all the receipies</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### CTA Area End ##### -->
-
-
-
-    <!-- ##### Follow Us Instagram Area Start ##### -->
-    <div class="follow-us-instagram">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h5>Follow Us Instragram</h5>
-                </div>
-            </div>
-        </div>
-        <!-- Instagram Feeds -->
-        <div class="insta-feeds d-flex flex-wrap">
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta1.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta2.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta3.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta4.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta5.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta6.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="img/bg-img/insta7.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Follow Us Instagram Area End ##### -->
-
+    
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container h-100">
@@ -498,7 +339,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/fetch.js"></script>
     <script src="js/app.js"></script>
     <script src="js/db.js"></script>
-    <script src="js/feed.js"></script>
+    
     </body>
 
 </html>
