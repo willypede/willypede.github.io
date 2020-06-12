@@ -14,7 +14,7 @@
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="manifest" href="./manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -135,6 +135,25 @@
                                 <div class="col-12">
                                     <textarea class="form-control" id="information" name="information" cols="30" rows="10" placeholder="Information"></textarea>
                                 </div>
+                                <div class="field_wrapper2 col-12">
+                                    <div>
+                                        <button href="javascript:void(0);" class="add_button2 btn btn-primary" title="Add field">Add more Ingredient</button>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" name="field_name[]" placeholder="Ingredient" required/>
+                                    </div>
+                                </div>
+                                <div class="field_wrapper col-12">
+                                    <div>
+                                        <button href="javascript:void(0);" class="add_button btn btn-primary" title="Add field">Add more Step</button>
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" name="field_name[]" placeholder="Steps" required/>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-success btn-block" title="SUBMIT">SUBMIT</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -185,7 +204,44 @@
     <script src="js/fetch.js"></script>
     <script src="js/app.js"></script>
     <script src="js/db.js"></script>
-    
     </body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var maxField = 10; //Input fields increment limitation
+            var addButton = $('.add_button'); //Add button selector
+            var addButton2 = $('.add_button2'); //Add button selector
+            var wrapper = $('.field_wrapper'); //Input field wrapper
+            var wrapper2 = $('.field_wrapper2'); //Input field wrapper
+            var x = 1; //Initial field counter is 1
+            var y = 1; //Initial field counter is 1
+            
+            $(wrapper).on('click', '.add_button', function(e){
+                e.preventDefault();
+                x++; //Increment field counter
+                var fieldHTML = '<input type="text" class="form-control" name="field_name[]" placeholder="Steps" required/>'; //New input field html 
+                $(wrapper).append(fieldHTML); //Add field html
+            });
+    
+            //Once remove button is clicked
+            $(wrapper).on('click', '.remove_button', function(e){
+                e.preventDefault();
+                $(this).parent('div').remove(); //Remove field html
+                x--; //Decrement field counter
+            });
 
+            $(wrapper2).on('click', '.add_button2', function(e){
+                e.preventDefault();
+                y++; //Increment field counter
+                var fieldHTML = '<input type="text" class="form-control" name="field_name[]" placeholder="Ingredient" required/>'; //New input field html 
+                $(wrapper2).append(fieldHTML); //Add field html
+            });
+    
+            //Once remove button is clicked
+            $(wrapper2).on('click', '.remove_button2', function(e){
+                e.preventDefault();
+                $(this).parent('div').remove(); //Remove field html
+                y--; //Decrement field counter
+            });
+        });
+        </script>
 </html>
