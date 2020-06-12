@@ -28,23 +28,6 @@
         <img src="img/core-img/salad.png" alt="">
     </div>
 
-    <!-- Search Wrapper -->
-    <div class="search-wrapper">
-        <!-- Close Btn -->
-        <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="#" method="post">
-                        <input type="search" name="search" placeholder="Type any keywords...">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
 
@@ -57,9 +40,9 @@
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
-                                    <li><a href="#">Hello World!</a></li>
-                                    <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                    <li><a href="#">Hello Delicious!</a></li>
+                                    <li>Hello World!</li>
+                                    <li>Welcome to Colorlib Family.</li>
+                                    <li>Hello Delicious!</li>
                                 </ul>
                             </div>
                         </div>
@@ -68,12 +51,10 @@
                     <!-- Top Social Info -->
                     <div class="col-12 col-sm-6">
                         <div class="top-social-info text-right">
-                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="https://www.pinterest.com/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -109,12 +90,6 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li class="active"><a href="our-recipes.html">Our Recipes</a></li>
                                 </ul>
-
-                                <!-- Newsletter Form -->
-                                <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -158,30 +133,19 @@
                                     url: 'https://tos.petra.ac.id/~c14170049/Mobweb/getresepbyid.php',
                                     data: {
                                         'id_resep' : id_resep
-                                        
                                     },
                                     success: function(data){
                                          data.forEach(function (item){
                                                     var row = `
-                                                    
-                                                
                                                     <img src="`+item['foto_resep']+`" alt="">
-                                                  
-                                            
                                                 `;  
                                                 $("#gambar").append(row);
-                                    
                                              });
                                     },
                                      error: function () {
-                                       
                                     }
-                                    
                                 });
-                    
-                            
                             </script>
-                   
                 </div>
             </div>
         </div>
@@ -201,7 +165,6 @@
                                     url: 'https://tos.petra.ac.id/~c14170049/Mobweb/getresepbyid.php',
                                     data: {
                                         'id_resep' : id_resep
-                                        
                                     },
                                     success: function(data){
                                          data.forEach(function (item, index){
@@ -213,18 +176,12 @@
                                                     </div>
                                                 `;  
                                                 $("#resep").append(row);
-                                    
                                              });
                                     },
                                      error: function () {
-                                       
                                     }
-                                    
                                 });
-                    
-                            
                             </script>
-                            
                         </div>
                     </div>
                 </div>
@@ -232,7 +189,6 @@
                 <div class="row">
                     <div class="col-12 col-lg-8" id="step">
                         <!-- Single Preparation Step -->
-                        
                           <script>
                                 var baseUrl = (window.location).href; // You can also use document.URL
                                 var id_resep = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
@@ -242,7 +198,6 @@
                                     url: 'https://tos.petra.ac.id/~c14170049/Mobweb/getstep.php',
                                     data: {
                                         'id_resep' : id_resep
-                                        
                                     },
                                     success: function(data){
                                          data.forEach(function (item, index){
@@ -251,22 +206,15 @@
                                                         <h4>0`+counter+`.</h4>
                                                         <p>`+item['isi_step']+` </p>
                                                     </div>
-
                                                 `;  
                                                 counter = counter + 1;
                                                 $("#step").append(row);
-                                    
                                              });
                                     },
                                      error: function () {
-                                       
                                     }
-                                    
                                 });
-                    
-                            
                             </script>
-                        
                     </div>
 
                     <!-- Ingredients -->
@@ -275,7 +223,6 @@
                             <h4>Ingredients</h4>
                             <div id="ingredients">
                             <!-- Custom Checkbox -->
-                           
                                 <script>
                                 var baseUrl = (window.location).href; // You can also use document.URL
                                 var id_resep = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
@@ -284,7 +231,6 @@
                                     url: 'https://tos.petra.ac.id/~c14170049/Mobweb/getbahan.php',
                                     data: {
                                         'id_resep' : id_resep
-                                        
                                     },
                                     success: function(data){
                                          data.forEach(function (item, index){
@@ -295,16 +241,11 @@
                                                     </div>
                                                 `;  
                                                 $("#ingredients").append(row);
-                                    
                                              });
                                     },
                                      error: function () {
-                                       
                                     }
-                                    
                                 });
-                    
-                            
                             </script>
                                 <!-- Custom Checkbox -->
                               
@@ -317,8 +258,6 @@
         </div>
     </div>
 
-   
-
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container h-100">
@@ -326,21 +265,17 @@
                 <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
                     <!-- Footer Social Info -->
                     <div class="footer-social-info text-right">
-                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://www.pinterest.com/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                     </div>
                     <!-- Footer Logo -->
                     <div class="footer-logo">
                         <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
                     </div>
                     <!-- Copywrite -->
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</p>
                 </div>
             </div>
         </div>
@@ -358,6 +293,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-
-
+    <script defer src="js/material.min.js"></script>
+    <script src="js/promise.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/db.js"></script>
+    </body>
 </html>
