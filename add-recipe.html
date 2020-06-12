@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Proyek Mobile Website | Home</title>
+    <title>Proyek Mobile Website | Add New Recipe</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -100,8 +100,8 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="add-recipe.html">Add New Recipe</a></li>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li class="active"><a href="add-recipe.html">Add New Recipe</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -113,107 +113,45 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <!-- ##### Hero Area Start ##### -->
-    <section class="hero-area">
-        <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg1.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms" id="titleResepSatu">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms" id="descResepSatu">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg6.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms" id="titleResepDua">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms" id="descResepDua">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(img/bg-img/bg7.jpg);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                            <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms" id="titleResepTiga">Delicios Homemade Burger</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms" id="descResepTiga">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Hero Area End ##### -->
-
-    <!-- ##### Best Receipe Area Start ##### -->
-    <section class="best-receipe-area section-padding-80-0">
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area section-padding-0-80">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>Our Recipies</h3>
+                        <h3>Add New Recipe</h3>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4" id="content">
-                     <script>
-                        $.ajax({
-                            url: 'https://tos.petra.ac.id/~c14170049/Mobweb/getresep.php',
-                            success: function(data){
-                                console.log(data);
-                                data.forEach(function (item, index){
-                                        var row = `
-                                        <div class="single-best-receipe-area mb-30">
-                                            <img src='`+ item['foto_resep']+`'' alt="">
-                                             <div class="receipe-content">
-                                                    <a href="receipe-post.html?id_resep=`+ item['id_resep'] +`">
-                                                        <h5>`+ item['nama_resep']+`</h5>
-                                                    </a>
-                                                    <div class="ratings">
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    `;
-                                    $("#content").append(row);
-                                });
-                            },
-                             error: function () {
-                            },
-                             complete: function (data) {
-                                // Handle the complete event
-                                console.log(data);
-                            }
-                        });
-                </script>
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" id="name" placeholder="Name of your Recipe">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" id="email" placeholder="Keterangan">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn delicious-btn mt-30" type="submit">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <!-- ##### Best Receipe Area End ##### -->
-
+    </div>
+    <!-- ##### Contact Form Area End ##### -->
     
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">

@@ -31,7 +31,7 @@ var firebaseConfig = {
     var descMenu = mainMenu[k].description;
     resepSatuTitle.innerHTML = namaMenu;
     resepSatuDesc.innerHTML = descMenu;
-    alert(k);
+    // alert(k);
 
   });
   
