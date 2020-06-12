@@ -155,17 +155,23 @@
                                 console.log(data);
                                 data.forEach(function (item, index){
                                         var row = `
-                                        <div class="single-small-receipe-area d-flex">
-                                            <div class="receipe-thumb">
-                                                <img src='`+ item['foto_resep']+`'' alt="">
-                                            </div>
-                                            <div class="receipe-content">
-                                                <a href="receipe-post.html?id_resep=`+ item['id_resep'] +`">
-                                                    <h5>`+ item['nama_resep']+`</h5>
-                                                </a>
+                                        <div class="single-best-receipe-area mb-30">
+                                            <img src='`+ item['foto_resep']+`'' alt="">
+                                             <div class="receipe-content">
+                                                    <a href="receipe-post.html?id_resep=`+ item['id_resep'] +`">
+                                                        <h5>`+ item['nama_resep']+`</h5>
+                                                    </a>
+                                                    <div class="ratings">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    `;  
+                                    `;
                                     $("#content").append(row);
                                 });
                             },
