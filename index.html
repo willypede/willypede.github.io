@@ -13,8 +13,8 @@
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="manifest" href="./manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -125,7 +125,6 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
                                     <li><a href="our-recipes.html">Our Recipes</a></li>
                                 </ul>
 
@@ -155,7 +154,7 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms" id="titleResepSatu">Delicios Homemade Burger</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms" id="descResepSatu">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Recipe</a>
                             </div>
                         </div>
                     </div>
@@ -170,7 +169,7 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms" id="titleResepDua">Delicios Homemade Burger</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms" id="descResepDua">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Recipe</a>
                             </div>
                         </div>
                     </div>
@@ -185,7 +184,7 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms" id="titleResepTiga">Delicios Homemade Burger</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms" id="descResepTiga">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem eget dui tristique, ac posuere arcu varius.</p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Receipe</a>
+                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See Recipe</a>
                             </div>
                         </div>
                     </div>
@@ -195,55 +194,18 @@
     </section>
     <!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Top Catagory Area Start ##### -->
-    <section class="top-catagory-area section-padding-80-0">
-        <div class="container">
-            <div class="row">
-                <!-- Top Catagory Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-catagory">
-                        <img src="img/bg-img/bg2.jpg" alt="">
-                        <!-- Content -->
-                        <div class="top-cta-content">
-                            <h3>Strawberry Cake</h3>
-                            <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Top Catagory Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-catagory">
-                        <img src="img/bg-img/bg3.jpg" alt="">
-                        <!-- Content -->
-                        <div class="top-cta-content">
-                            <h3>Chinesse Noodles</h3>
-                            <h6>Simple &amp; Delicios</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">See Full Receipe</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Top Catagory Area End ##### -->
-
     <!-- ##### Best Receipe Area Start ##### -->
     <section class="best-receipe-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The best Receipies</h3>
+                        <h3>The best Recipies</h3>
                     </div>
                 </div>
             </div>
-
             <div class="row">
-            
-               
                 <!-- Single Best Receipe Area -->
-               
                 <div class="col-12 col-sm-6 col-lg-4" id="content">
                      <script>
                         $.ajax({
@@ -251,8 +213,6 @@
                             success: function(data){
                                 console.log(data);
                                 data.forEach(function (item, index){
-            
-                                    
                                         var row = `
                                         <div class="single-best-receipe-area mb-30">
                                             <img src='`+ item['foto_resep']+`'' alt="">
@@ -270,24 +230,18 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    `;  
-    
+                                    `;
                                     $("#content").append(row);
                                 });
                             },
                              error: function () {
-                               
                             },
                              complete: function (data) {
                                 // Handle the complete event
                                 console.log(data);
                             }
                         });
-                    
                 </script>
-                    
-
-
             </div>
         </div>
     </section>
