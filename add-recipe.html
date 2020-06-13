@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>8 Proyek Mobile Website | Add New Recipe</title>
+    <title>9 Proyek Mobile Website | Add New Recipe</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -126,7 +126,7 @@
                         <form action="" method="post" enctype="multipart/form-data" autocomplete="off" id="myForm">
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" id="name" placeholder="Name of your Recipe">
+                                    <input type="text" class="form-control" id="name" placeholder="Name of your Recipe" name="name">
                                 </div>
                                 <div class="col-12">
                                     <textarea class="form-control" id="desc" name="desc" cols="30" rows="10" placeholder="Information"></textarea>
@@ -211,22 +211,24 @@
             var y = 1; //Initial field counter is 1
             
             $("#go").click(function(e) {
-            alert("asd");
-            // var formData = new FormData($(this));
-            var form = $('#myForm')[0];
-            var formData = new FormData(form);
-            $.ajax({
-                url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
-                type: "POST",
-                data: formData,
-                success: function (msg) {
-                    alert("done");
-                    alert(msg);
-                },
-                cache: false,
-                contentType: false,
-                processData: false
-            });
+                alert("asd");
+                // var formData = new FormData($(this));
+                // var form = $('#myForm')[0];
+                // var formData = new FormData(form);
+                $.ajax({
+                    url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
+                    type: "POST",
+                    data: {
+                        name: $("#name").val()
+                    },
+                    success: function (msg) {
+                        alert("done");
+                        alert(msg);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
 
             });
 
