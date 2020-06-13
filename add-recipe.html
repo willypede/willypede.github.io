@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>9 Proyek Mobile Website | Add New Recipe</title>
+    <title>10 Proyek Mobile Website | Add New Recipe</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -209,28 +209,38 @@
             var wrapper2 = $('.field_wrapper2'); //Input field wrapper
             var x = 1; //Initial field counter is 1
             var y = 1; //Initial field counter is 1
-            
-            $("#go").click(function(e) {
-                alert("asd");
-                // var formData = new FormData($(this));
-                // var form = $('#myForm')[0];
-                // var formData = new FormData(form);
-                $.ajax({
-                    url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
-                    type: "POST",
-                    data: {
-                        name: $("#name").val()
-                    },
-                    success: function (msg) {
-                        alert("done");
-                        alert(msg);
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                });
-
+            $("#go").click(function(){
+            $.ajax({
+                url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
+                type: "post",
+                data: {
+                    laporan: 1,
+                    name: $("#name").val()
+                }
+            }).done(function( res ) {
+                alert("done");
+                alert(res);
             });
+            });
+            // $("#go").click(function(e) {
+            //     alert("asd");
+            //     // var formData = new FormData($(this));
+            //     // var form = $('#myForm')[0];
+            //     // var formData = new FormData(form);
+            //     $.ajax({
+            //         url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
+            //         type: "POST",
+            //         data: {
+            //             name: $("#name").val()
+            //         },
+            //         success: function (msg) {
+            //         },
+            //         cache: false,
+            //         contentType: false,
+            //         processData: false
+            //     });
+
+            // });
 
             $(wrapper).on('click', '.add_button', function(e){
                 e.preventDefault();
