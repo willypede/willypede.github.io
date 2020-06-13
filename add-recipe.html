@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>3 Proyek Mobile Website | Add New Recipe</title>
+    <title>4 Proyek Mobile Website | Add New Recipe</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -123,7 +123,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="contact-form-area">
-                        <form action="#" method="post" enctype="multipart/form-data" autocomplete="off" id="myForm">
+                        <form action="" method="post" enctype="multipart/form-data" autocomplete="off" id="myForm">
                             <div class="row">
                                 <div class="col-12">
                                     <input type="text" class="form-control" id="name" placeholder="Name of your Recipe">
@@ -148,7 +148,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-success btn-block" title="SUBMIT">SUBMIT</button>
+                                    <button class="btn btn-success btn-block" title="SUBMIT" id="go">SUBMIT</button>
                                 </div>
                             </div>
                         </form>
@@ -184,9 +184,9 @@
     <!-- ##### Footer Area Start ##### -->
     <!-- Form submit script -->
     <script>
-        $("#myForm").submit(function(e) {
-        var formData = new FormData($(this));
-
+        $("#go").click(function(e) {
+        // var formData = new FormData($(this));
+        var formData = $("#myForm").serialize();
         $.ajax({
             url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
             type: "POST",
