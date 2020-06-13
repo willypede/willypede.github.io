@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>4 Proyek Mobile Website | Add New Recipe</title>
+    <title>5 Proyek Mobile Website | Add New Recipe</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -185,8 +185,10 @@
     <!-- Form submit script -->
     <script>
         $("#go").click(function(e) {
+            alert("asd");
         // var formData = new FormData($(this));
-        var formData = $("#myForm").serialize();
+        var form = $('#myForm')[0];
+        var formData = new FormData(form);
         $.ajax({
             url: "http://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
             type: "POST",
