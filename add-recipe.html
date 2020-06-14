@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>14 Proyek Mobile Website | Add New Recipe</title>
+    <title>15 Proyek Mobile Website | Add New Recipe</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -136,7 +136,7 @@
                                         <button href="javascript:void(0);" class="add_button2 btn" title="Add field" style="margin-bottom: 10px;">Add more Ingredient</button>
                                     </div>
                                     <div>
-                                        <input type="text" class="form-control" name="field_name[]" placeholder="Ingredient" required/>
+                                        <input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>
                                     </div>
                                 </div>
                                 <div class="field_wrapper col-12">
@@ -144,7 +144,7 @@
                                         <button href="javascript:void(0);" class="add_button btn" title="Add field" style="margin-bottom: 10px;">Add more Step</button>
                                     </div>
                                     <div>
-                                        <input type="text" class="form-control" name="field_name[]" placeholder="Steps" required/>
+                                        <input type="text" class="form-control" name="field_step[]" placeholder="Steps" required/>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -212,6 +212,8 @@
     <script src="js/db.js"></script>
     </body>
     <script type="text/javascript">
+        var totalSteps = 1;
+        var totalIngredients = 1;
         $(document).ready(function(){
             var maxField = 10; //Input fields increment limitation
             var addButton = $('.add_button'); //Add button selector
@@ -242,14 +244,14 @@
             $(wrapper).on('click', '.add_button', function(e){
                 e.preventDefault();
                 x++; //Increment field counter
-                var fieldHTML = '<input type="text" class="form-control" name="field_name[]" placeholder="Steps" required/>'; //New input field html 
+                var fieldHTML = '<input type="text" class="form-control" name="field_step[]" placeholder="Steps" required/>'; //New input field html 
                 $(wrapper).append(fieldHTML); //Add field html
             });
 
             $(wrapper2).on('click', '.add_button2', function(e){
                 e.preventDefault();
                 y++; //Increment field counter
-                var fieldHTML = '<input type="text" class="form-control" name="field_name[]" placeholder="Ingredient" required/>'; //New input field html 
+                var fieldHTML = '<input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>'; //New input field html 
                 $(wrapper2).append(fieldHTML); //Add field html
             });
         });
