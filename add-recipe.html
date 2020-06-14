@@ -135,16 +135,8 @@
                                     <div>
                                         <button href="javascript:void(0);" class="add_button2 btn" title="Add field" style="margin-bottom: 10px;">Add more Ingredient</button>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>
-                                        </div>
-                                        <div class="col-2">
-                                            <input type="text" class="form-control" name="field_quan[]" placeholder="Quantity" required/>
-                                        </div>
-                                        <div class="col-2">
-                                            <input type="text" class="form-control" name="field_unit[]" placeholder="Unit" required/>
-                                        </div>
+                                    <div>
+                                        <input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>
                                     </div>
                                 </div>
                                 <div class="field_wrapper col-12">
@@ -256,7 +248,6 @@
                     contentType: false,
                     processData: false
                 });
-
             });
 
             $(wrapper).on('click', '.add_button', function(e){
@@ -270,7 +261,7 @@
             $(wrapper2).on('click', '.add_button2', function(e){
                 e.preventDefault();
                 y++; //Increment field counter
-                var fieldHTML = '<div class="row"><div class="col-8"><input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/></div><div class="col-2"><input type="text" class="form-control" name="field_quan[]" placeholder="Quantity" required/></div><div class="col-2"><input type="text" class="form-control" name="field_unit[]" placeholder="Unit" required/></div></div>'; //New input field html 
+                var fieldHTML = '<input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>'; //New input field html 
                 $(wrapper2).append(fieldHTML); //Add field html
                 totalIngredients++;
             });
