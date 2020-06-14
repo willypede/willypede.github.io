@@ -126,14 +126,14 @@
                         <form action="" method="post" enctype="multipart/form-data" autocomplete="off" id="myForm">
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" id="name" placeholder="Name of your Recipe" name="name">
+                                    <input type="text" class="form-control" id="name" placeholder="Name of your Recipe" name="name" required>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control" id="desc" name="desc" cols="30" rows="10" placeholder="Information"></textarea>
+                                    <textarea class="form-control" id="desc" name="desc" cols="30" rows="10" placeholder="Information" required></textarea>
                                 </div>
                                 <div class="field_wrapper2 col-12">
                                     <div>
-                                        <button href="javascript:void(0);" class="add_button2 btn btn-primary" title="Add field">Add more Ingredient</button>
+                                        <button href="javascript:void(0);" class="add_button2 btn" title="Add field" style="margin-bottom: 10px;">Add more Ingredient</button>
                                     </div>
                                     <div>
                                         <input type="text" class="form-control" name="field_name[]" placeholder="Ingredient" required/>
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="field_wrapper col-12">
                                     <div>
-                                        <button href="javascript:void(0);" class="add_button btn btn-primary" title="Add field">Add more Step</button>
+                                        <button href="javascript:void(0);" class="add_button btn" title="Add field" style="margin-bottom: 10px;">Add more Step</button>
                                     </div>
                                     <div>
                                         <input type="text" class="form-control" name="field_name[]" placeholder="Steps" required/>
@@ -149,7 +149,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="fileFoto">Foto Bersama Pembeli</label>
+                                        <label for="fileFoto">Food Picture</label>
                                         <div class="input-group">
                                           <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="fileFoto" name="fileFoto" required>
@@ -158,13 +158,11 @@
                                         </div>
                                       </div>
                                 </div>
-                                
-                                
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-block" title="SUBMIT" id="go">SUBMIT</button>
                             </div>
                         </form>
-                        <div class="col-12">
-                            <button class="btn btn-success btn-block" title="SUBMIT" id="go">SUBMIT</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -179,10 +177,10 @@
                 <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
                     <!-- Footer Social Info -->
                     <div class="footer-social-info text-right">
-                        <a href="https://www.pinterest.com/"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://www.pinterest.com/"><i class="fa fa-pinterest" aria-hidden="true">.</i></a>
+                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true">.</i></a>
+                        <a href="https://twitter.com/"><i class="fa fa-twitter" aria-hidden="true">.</i></a>
+                        <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true">.</i></a>
                     </div>
                     <!-- Footer Logo -->
                     <div class="footer-logo">
@@ -222,19 +220,7 @@
             var wrapper2 = $('.field_wrapper2'); //Input field wrapper
             var x = 1; //Initial field counter is 1
             var y = 1; //Initial field counter is 1
-            // $("#go").click(function(){
-            //     $.ajax({
-            //         url: "https://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
-            //         type: "post",
-            //         data: {
-            //             laporan: 1,
-            //             name: $("#name").val()
-            //         }
-            //     }).done(function( res ) {
-            //         alert("done");
-            //         alert(res);
-            //     });
-            // });
+
             $("#go").click(function(e) {
                 // var formData = new FormData($(this));
                 var form = $('#myForm')[0];
@@ -259,26 +245,12 @@
                 var fieldHTML = '<input type="text" class="form-control" name="field_name[]" placeholder="Steps" required/>'; //New input field html 
                 $(wrapper).append(fieldHTML); //Add field html
             });
-    
-            //Once remove button is clicked
-            $(wrapper).on('click', '.remove_button', function(e){
-                e.preventDefault();
-                $(this).parent('div').remove(); //Remove field html
-                x--; //Decrement field counter
-            });
 
             $(wrapper2).on('click', '.add_button2', function(e){
                 e.preventDefault();
                 y++; //Increment field counter
                 var fieldHTML = '<input type="text" class="form-control" name="field_name[]" placeholder="Ingredient" required/>'; //New input field html 
                 $(wrapper2).append(fieldHTML); //Add field html
-            });
-    
-            //Once remove button is clicked
-            $(wrapper2).on('click', '.remove_button2', function(e){
-                e.preventDefault();
-                $(this).parent('div').remove(); //Remove field html
-                y--; //Decrement field counter
             });
         });
         </script>
