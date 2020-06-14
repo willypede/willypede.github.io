@@ -160,6 +160,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
+                                <input type="text" id="totalSteps" hidden>
+                                <input type="text" id="totalIngredients" hidden>
                                 <button class="btn btn-block" title="SUBMIT" id="go">SUBMIT</button>
                             </div>
                         </form>
@@ -225,6 +227,9 @@
 
             $("#go").click(function(e) {
                 // var formData = new FormData($(this));
+                $("#totalSteps").val(totalSteps);
+                $("#totalIngredient").val(totalIngredients);
+
                 var form = $('#myForm')[0];
                 var formData = new FormData(form);
                 $.ajax({
@@ -246,6 +251,7 @@
                 x++; //Increment field counter
                 var fieldHTML = '<input type="text" class="form-control" name="field_step[]" placeholder="Steps" required/>'; //New input field html 
                 $(wrapper).append(fieldHTML); //Add field html
+                totalSteps++;
             });
 
             $(wrapper2).on('click', '.add_button2', function(e){
@@ -253,6 +259,7 @@
                 y++; //Increment field counter
                 var fieldHTML = '<input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>'; //New input field html 
                 $(wrapper2).append(fieldHTML); //Add field html
+                totalIngredients++;
             });
         });
         </script>
