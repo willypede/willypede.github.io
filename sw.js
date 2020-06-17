@@ -63,20 +63,11 @@ self.addEventListener('activate', function (event) {
   return self.clients.claim();
 });
 
-function isInArray(string, array) {
-  var cachePath;
-  if (string.indexOf(self.origin) === 0) { // request targets domain where we serve the page from (i.e. NOT a CDN)
-    console.log('matched ', string);
-    cachePath = string.substring(self.origin.length); // take the part of the URL AFTER the domain (e.g. after localhost:8080)
-  } else {
-    cachePath = string; // store the full request (for CDNs)
-  }
-  return array.indexOf(cachePath) > -1;
-}
+
 
 self.addEventListener('fetch', function (event) {
-
   var url = 'https://httpbin.org/get';
+
   if (event.request.url.indexOf(url) > -1) {
     event.respondWith(
       caches.open(CACHE_DYNAMIC_NAME)
@@ -87,10 +78,6 @@ self.addEventListener('fetch', function (event) {
               return res;
             });
         })
-    );
-  } else if (isInArray(event.request.url, STATIC_FILES)) {
-    event.respondWith(
-      caches.match(event.request)
     );
   } else {
     event.respondWith(
@@ -110,9 +97,7 @@ self.addEventListener('fetch', function (event) {
               .catch(function (err) {
                 return caches.open(CACHE_STATIC_NAME)
                   .then(function (cache) {
-                    if (event.request.headers.get('accept').includes('text/html')) {
-                      return cache.match('/index.html');
-                    }
+                    return cache.match('/offline.html');
                   });
               });
           }
@@ -120,3 +105,4 @@ self.addEventListener('fetch', function (event) {
     );
   }
 });
+
