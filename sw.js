@@ -1,5 +1,5 @@
-var CACHE_STATIC_NAME = 'static-v12';
-var CACHE_DYNAMIC_NAME = 'dynamic-v2';
+var CACHE_STATIC_NAME = 'static-v1';
+var CACHE_DYNAMIC_NAME = 'dynamic-v1';
 
 self.addEventListener('install', function (event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
@@ -64,7 +64,7 @@ self.addEventListener('activate', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
-  var url = 'https://httpbin.org/get';
+  var url = 'https://tos.petra.ac.id/~c14170049/Mobweb/getresep.php';
 
   if (event.request.url.indexOf(url) > -1) {
     event.respondWith(
