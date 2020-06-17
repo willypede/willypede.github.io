@@ -1,4 +1,4 @@
-var CACHE_STATIC_NAME = 'static-v11';
+var CACHE_STATIC_NAME = 'static-v1';
 var CACHE_DYNAMIC_NAME = 'dynamic-v2';
 
 self.addEventListener('install', function (event) {
@@ -41,7 +41,7 @@ self.addEventListener('install', function (event) {
           './fonts/icomoon.svg',
           './fonts/icomoon.ttf',
           './fonts/icomoon.woff',
-          './img/core-img/salad.png',
+          './img/core-img/salad.png'
         ]);
       })
   )
