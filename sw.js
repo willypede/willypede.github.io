@@ -1,4 +1,4 @@
-var CACHE_STATIC_NAME = 'static-v1';
+var CACHE_STATIC_NAME = 'static-v12';
 var CACHE_DYNAMIC_NAME = 'dynamic-v2';
 
 self.addEventListener('install', function (event) {
@@ -63,43 +63,43 @@ self.addEventListener('activate', function (event) {
   return self.clients.claim();
 });
 
-// default
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    fetch(event.request)
-      .then(function(res) {
-        return caches.open(CACHE_DYNAMIC_NAME)
-                .then(function(cache) {
-                  cache.put(event.request.url, res.clone());
-                  return res;
-                })
-      })
-      .catch(function(err) {
-        return caches.match(event.request);
-      })
-  );
-});
-// Willy
 self.addEventListener('fetch', function (event) {
-  var url = 'https://mobweb-94fd6.firebaseio.com/main_menu';
+  var url = 'https://httpbin.org/get';
+
   if (event.request.url.indexOf(url) > -1) {
-    event.respondWith(fetch(event.request)
-      .then(function (res) {
-        var clonedRes = res.clone();
-        clonedRes.json()
-          .then(function(data) {
-            for (var key in data) {
-              dbPromise
-                .then(function(db) {
-                  var tx = db.transaction('main_menu', 'readwrite');
-                  var store = tx.objectStore('main_menu');
-                  store.put(data[key]);
-                  return tx.complete;
-                });
-            }
-          });
-        return res;
-      })
+    event.respondWith(
+      caches.open(CACHE_DYNAMIC_NAME)
+        .then(function (cache) {
+          return fetch(event.request)
+            .then(function (res) {
+              cache.put(event.request, res.clone());
+              return res;
+            });
+        })
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request)
+        .then(function (response) {
+          if (response) {
+            return response;
+          } else {
+            return fetch(event.request)
+              .then(function (res) {
+                return caches.open(CACHE_DYNAMIC_NAME)
+                  .then(function (cache) {
+                    cache.put(event.request.url, res.clone());
+                    return res;
+                  })
+              })
+              .catch(function (err) {
+                return caches.open(CACHE_STATIC_NAME)
+                  .then(function (cache) {
+                    return cache.match('/index.html');
+                  });
+              });
+          }
+        })
     );
   }
 });
