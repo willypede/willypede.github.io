@@ -136,7 +136,7 @@
                                         <button href="javascript:void(0);" class="add_button2 btn" title="Add field" style="margin-bottom: 10px;">Add more Ingredient</button>
                                     </div>
                                     <div>
-                                        <input type="text" class="form-control" name="field_ingredient[]" placeholder="Ingredient" required/>
+                                        <input type="text" class="form-control" id="ingr" name="field_ingredient[]" placeholder="Ingredient" required/>
                                     </div>
                                 </div>
                                 <div class="field_wrapper col-12">
@@ -144,7 +144,7 @@
                                         <button href="javascript:void(0);" class="add_button btn" title="Add field" style="margin-bottom: 10px;">Add more Step</button>
                                     </div>
                                     <div>
-                                        <input type="text" class="form-control" name="field_step[]" placeholder="Steps" required/>
+                                        <input type="text" class="form-control" id="step" name="field_step[]" placeholder="Steps" required/>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -229,21 +229,41 @@
 
                 var form = $('#myForm')[0];
                 var formData = new FormData(form);
-                $.ajax({
-                    url: "https://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
-                    type: "POST",
-                    data: formData,
-                    error: function (asd) {
-                        console.log(asd);
-                    },
-                    success: function (msg) {
-                        alert("Data Added");
-                        $("#myForm")[0].reset();
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                });
+                if (document.getElementById("name") && document.getElementById("name").value) {
+                    if (document.getElementById("desc") && document.getElementById("desc").value) {
+                        if (document.getElementById("ingr") && document.getElementById("ingr").value) {
+                            if (document.getElementById("step") && document.getElementById("step").value) {
+                                if (document.getElementById("fileFoto") && document.getElementById("fileFoto").value) {
+                                    $.ajax({
+                                        url: "https://tos.petra.ac.id/~c14170049/Mobweb/addResep.php",
+                                        type: "POST",
+                                        data: formData,
+                                        error: function (asd) {
+                                            console.log(asd);
+                                        },
+                                        success: function (msg) {
+                                            alert("Data Added");
+                                            $("#myForm")[0].reset();
+                                        },
+                                        cache: false,
+                                        contentType: false,
+                                        processData: false
+                                    });
+                                } else {
+                                    alert("Food Picture Required !")
+                                }
+                            } else {
+                                alert("Step(s) Required !")
+                            }
+                        } else {
+                            alert("Ingredient(s) Required !")
+                        } 
+                    } else {
+                    alert("Information Required !")
+                    }
+                } else {
+                alert("Name Required !")
+                }
             });
 
             $(wrapper).on('click', '.add_button', function(e){
