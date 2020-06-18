@@ -10,6 +10,10 @@ self.addEventListener('install', function (event) {
         cache.addAll([
           './',
           './index.html',
+          './add-recipe.html',
+          './receipe-post.html',
+          './offline.html',
+          './manifest.json',
           './css/animate.css',
           './css/bootstrap.min.css',
           './css/classy-nav.min.css',
@@ -32,7 +36,13 @@ self.addEventListener('install', function (event) {
           './fonts/icomoon.svg',
           './fonts/icomoon.ttf',
           './fonts/icomoon.woff',
-          './img/core-img/salad.png'
+          './img/core-img/salad.png',
+          './img/icons/app-icon-48x48.png',
+          './img/icons/app-icon-96x96.png',
+          './img/icons/app-icon-144x144.png',
+          './img/icons/app-icon-192x192.png',
+          './img/icons/app-icon-256x256.png',
+          './img/icons/app-icon-512x512.png',
         ]);
       })
   )

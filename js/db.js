@@ -18,11 +18,7 @@ var firebaseConfig = {
     var keys = Object.keys(mainMenu);
     console.log(keys);
     var resepSatuTitle = document.getElementById("titleResepSatu");
-    var resepDuaTitle = document.getElementById("titleResepDua");
-    var resepTigaTitle = document.getElementById("titleResepTiga");
     var resepSatuDesc = document.getElementById("descResepSatu");
-    var resepDuaDesc = document.getElementById("descResepDua");
-    var resepTigaDesc = document.getElementById("descResepTiga");
     // Resep 1
     var k = keys[0];
     var namaMenu = mainMenu[k].name;
